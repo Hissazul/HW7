@@ -16,10 +16,10 @@ public class Main {
                            "3. The endurance elixir: - 3 raven bones - 4 dumplings\n" +
                            "4. The secrecy elixir: - 2 toad eyes - 7 ghoul tears - 1 dumplings\n");
         //Рецепты Эликсиров:
-        // 1. 3 Жабьих глаза + 1 кость ворона - Эликсир зоркости
+        // 1. 1 кость ворона + 3 Жабьих глаза- Эликсир зоркости
         // 2. 2 кости ворона + 4 пельменя - Эликсир стойкости
-        // 3. 7 слез вурдалака + 1 пельмень + 2 жабьих глаза - Эликсир скрытности
-        // 4. 5 слез вурдалака + 10 пельменей + 4 жабьих глаза + 3 кости ворона - Запретный эликсир
+        // 3. 7 слез вурдалака + 2 жабьих глаза + 1 пельмень - Эликсир скрытности
+        // 4. 5 слез вурдалака + 3 кости ворона + 4 жабьих глаза +10 пельменей - Запретный эликсир
         System.out.println("        What you have ingredients?\n");
         System.out.print("Toad eyes: - ");
         int toadEyes = new Scanner(System.in).nextInt();
@@ -40,28 +40,38 @@ public class Main {
         ravenBonesCount = ravenBones;
         dumplingsCount = dumplings;
 
-        while (toadEyesCount >= 4 && ghoulTearsCount >= 5 && ravenBonesCount > 3 && dumplingsCount >= 10) {
-                toadEyesCount = toadEyes - 4;
-                ghoulTearsCount = ghoulTears - 5;
-                ravenBonesCount = ravenBones - 3;
-                dumplingsCount = dumplings - 10;
-                forbiddenElixir++;
+        while (toadEyesCount >= 4 && ghoulTearsCount >= 5 && ravenBonesCount >= 3 && dumplingsCount >= 10) {
+            toadEyesCount = toadEyesCount - 4;
+            ghoulTearsCount = ghoulTearsCount - 5;
+            ravenBonesCount = ravenBonesCount - 3;
+            dumplingsCount = dumplingsCount - 10;
+            forbiddenElixir++;
         }
+        toadEyesCount = toadEyes;
+        ravenBonesCount = ravenBones;
+
         while (toadEyesCount >= 3 && ravenBonesCount >= 1) {
-                toadEyesCount = toadEyes - 3;
-                ravenBonesCount = ravenBones - 1;
-                vigilanceElixir++;
-        }
+            toadEyesCount = toadEyesCount - 3;
+            ravenBonesCount = ravenBonesCount - 1;
+            vigilanceElixir++;
+         }
+        ravenBonesCount = ravenBones;
+        dumplingsCount = dumplings;
+
         while (ravenBonesCount >= 3 && dumplingsCount >= 4) {
-                ravenBonesCount = ravenBones - 3;
-                dumplingsCount = dumplings - 4;
-                enduranceElixir++;
+            ravenBonesCount = ravenBonesCount - 3;
+            dumplingsCount = dumplingsCount - 4;
+            enduranceElixir++;
         }
+        toadEyesCount = toadEyes;
+        ghoulTearsCount = ghoulTears;
+        dumplingsCount = dumplings;
+
         while (toadEyesCount >= 2 && ghoulTearsCount >= 7 && dumplingsCount >= 1) {
-                toadEyesCount = toadEyes - 2;
-                ghoulTearsCount = ghoulTears - 7;
-                dumplingsCount = dumplings - 1;
-                secrecyElixir++;
+            toadEyesCount = toadEyesCount - 2;
+            ghoulTearsCount = ghoulTearsCount - 7;
+            dumplingsCount = dumplingsCount - 1;
+            secrecyElixir++;
         }
         if (forbiddenElixir == 0 && vigilanceElixir == 0 && enduranceElixir == 0 && secrecyElixir == 0){
             System.out.println("You don't have enough ingredients for more than one elixir!");
@@ -69,12 +79,6 @@ public class Main {
             System.out.println("The forbidden elixir: - " + forbiddenElixir + "\nThe vigilance elixir: - " + vigilanceElixir +
                     "\nThe endurance elixir: - " + enduranceElixir + "\nThe secrecy elixir: - " + secrecyElixir);
         }
-        //Рецепты Эликсиров:
-        // 1. 3 Жабьих глаза + 1 кость ворона - Эликсир зоркости
-        // 2. 2 кости ворона + 4 пельменя - Эликсир стойкости
-        // 3. 7 слез вурдалака + 1 пельмень + 2 жабьих глаза - Эликсир скрытности
-        // 4. 5 слез вурдалака + 10 пельменей + 4 жабьих глаза + 3 кости ворона - Запретный эликсир
-
         //todo дописать логику программы сюда
     }
 }
